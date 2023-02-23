@@ -20,6 +20,7 @@ struct StocksAPIExec {
         }
         catch {
             print(error.localizedDescription)
+            print("Fake commit")
         }
         
 //        let (data, _) = try! await URLSession.shared.data(from:  URL(string: "https://query1.finance.yahoo.com/v7/finance/quote")!)
