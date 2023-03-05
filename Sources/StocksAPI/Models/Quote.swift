@@ -48,6 +48,10 @@ public struct Quote: Codable, Identifiable, Hashable {
     public let fullExchangeName: String?
     public let displayName: String?
     public let symbol: String?
+    public let regularMarketPrice: Double?
+    public let regularMarketChangePercent: Double?
+    public let regularMarketChange: Double?
+    public let regularMarketPreviousClose: Double?
     
     public let postMarketPrice: Double?
     public let postMarketChange: Double?
@@ -67,12 +71,16 @@ public struct Quote: Codable, Identifiable, Hashable {
     public let trailingAnnualDividendYield: Double?
     public let epsTrailingTwelveMonths: Double?
     
-    public init(currency: String?, marketState: String?, fullExchangeName: String?, displayName: String?, symbol: String?, postMarketPrice: Double?, postMarketChange: Double?, regularMarketOpen: Double?, regularMarketDayHigh: Double?, regularMarketDayLow: Double?, regularMarketVolume: Double?, trailingPE: Double?, marketCap: Double?, fiftyTwoWeekLow: Double?, fiftyTwoWeekHigh: Double?, averageDailyVolume3Month: Double?, trailingAnnualDividendYield: Double?, epsTrailingTwelveMonths: Double?) {
+    public init(currency: String?, marketState: String?, fullExchangeName: String?, displayName: String?, symbol: String?, regularMarketPrice: Double?, regularMarketChangePercent: Double?, regularMarketChange: Double?, regularMarketPreviousClose: Double?,postMarketPrice: Double?, postMarketChange: Double?, regularMarketOpen: Double?, regularMarketDayHigh: Double?, regularMarketDayLow: Double?, regularMarketVolume: Double?, trailingPE: Double?, marketCap: Double?, fiftyTwoWeekLow: Double?, fiftyTwoWeekHigh: Double?, averageDailyVolume3Month: Double?, trailingAnnualDividendYield: Double?, epsTrailingTwelveMonths: Double?) {
         self.currency = currency
         self.marketState = marketState
         self.fullExchangeName = fullExchangeName
         self.displayName = displayName
         self.symbol = symbol
+        self.regularMarketPrice = regularMarketPrice
+        self.regularMarketChangePercent = regularMarketChangePercent
+        self.regularMarketChange = regularMarketChange
+        self.regularMarketPreviousClose = regularMarketPreviousClose
         self.postMarketPrice = postMarketPrice
         self.postMarketChange = postMarketChange
         self.regularMarketOpen = regularMarketOpen
