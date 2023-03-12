@@ -1,5 +1,14 @@
 import Foundation
 
+public protocol IStocksAPI {
+    func fetchChartData(tickerSymbol: String, range: ChartRange) async throws -> ChartData?
+    func fetchChartRawData(symbol: String, range: ChartRange) async throws -> (Data, URLResponse)
+    func searchTickers(query: String, isEquityTypeOnly: Bool) async throws -> [Ticker]
+    func searchTickersRawData(query: String, isEquityTypeOnly: Bool) async throws -> (Data, URLResponse)
+    func fetchQuotes(symbols: String) async throws -> [Quote]
+    func fetchQuotesRawData(symbols: String) async throws -> (Data, URLResponse)
+}
+
 public struct StocksAPI {
     private let session = URLSession.shared
     private let jsondDecoder = {
