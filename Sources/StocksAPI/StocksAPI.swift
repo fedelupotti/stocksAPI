@@ -69,7 +69,22 @@ public struct StocksAPI {
         } else {
             return response.data ?? []
         }
+    }
+    
+    public func searchTickersRawData(query: String, isEquityTypeOnly: Bool) async throws -> (Data, URLResponse) {
+        guard let url = urlForSearchTickers(query: query) else { throw APIError.invalidURL }
+        return try await session.data(from: url)
+    }
+    
+    private func urlForSearchTickers(query: String) -> URL? {
+        guard var urlComp = URLComponents(string: "\(baseURL)/v1/finance/search") else { return nil }
         
+        urlComp.queryItems = [
+            URLQueryItem(name: "lang", value: "en-US"),
+            URLQueryItem(name: "quotesCount", value: "20"),
+            URLQueryItem(name: "q", value: query)
+        ]
+        return urlComp.url
     }
     
     public func fetchQuotes(symbols: String) async throws -> [Quote] {
