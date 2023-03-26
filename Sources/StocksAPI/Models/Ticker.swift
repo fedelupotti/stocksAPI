@@ -32,7 +32,7 @@ public struct SearchTickerResponse: Decodable {
 }
 
 
-public struct Ticker: Codable, Identifiable, Hashable, Equatable {
+public struct Ticker: Decodable, Encodable, Identifiable, Hashable, Equatable {
     
     public let id = UUID()
     
